@@ -1,15 +1,14 @@
-     async function getComponent() {
-         const element = document.createElement('div');
-         const {
-             default: _
-         } = await
-         import ( /* webpackChunkName: "lodash" */ 'lodash');
+import _ from 'lodash';
+import Print from './print';
 
-         element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+function component() {
+    const element = document.createElement('div');
 
-         return element;
-     }
+    // Lodash, now imported by this script
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.onclick = Print.bind(null, 'Hello webpack!');
 
-     getComponent().then(component => {
-         document.body.appendChild(component);
-     });
+    return element;
+}
+
+document.body.appendChild(component());
