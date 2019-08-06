@@ -1,12 +1,13 @@
 {
     "name": "brincando-com-webpack",
+    "sideEffects": false,
     "version": "1.0.0",
     "description": "",
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "npx webpack --watch --config webpack.config.js",
-        "start": "webpack-dev-server --open",
+        "build": "webpack --config webpack.prod.js",
+        "start": "webpack-dev-server --open --config webpack.dev.js",
         "server": "node server.js"
     },
     "repository": {
@@ -32,6 +33,7 @@
         "webpack-cli": "^3.3.6",
         "webpack-dev-middleware": "^3.7.0",
         "webpack-dev-server": "^3.7.2",
+        "webpack-merge": "^4.2.1",
         "xml-loader": "^1.2.1"
     },
     "dependencies": {
